@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
+    [SerializeField] WaveConfig waveConfig;
+
     //a list of points of type Transform
     [SerializeField] List<Transform> waypoints;
 
@@ -15,6 +17,8 @@ public class EnemyPathing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        waypoints = waveConfig.GetWaypoints();
+
         //set the starting position of the Enemy ship to the position of the 1st waypoint
         transform.position = waypoints[waypointIndex].transform.position;
     }
