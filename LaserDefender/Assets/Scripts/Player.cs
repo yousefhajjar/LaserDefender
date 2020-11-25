@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     Coroutine fireCoroutine;
 
+    bool coroutineStarted;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,11 +58,16 @@ public class Player : MonoBehaviour
         //if i press fire button
         if (Input.GetButtonDown("Fire1"))
         {
-            fireCoroutine = StartCoroutine(FireContinuously());
+            if (!coroutineStarted) //if coroutineStarted == false
+            {
+                fireCoroutine = StartCoroutine(FireContinuously());
+                coroutineStarted = true;
+            }
         }
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(fireCoroutine);
+            coroutineStarted = false;
         }
     }
 
