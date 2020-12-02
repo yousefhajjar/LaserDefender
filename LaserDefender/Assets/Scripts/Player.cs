@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.7f;
 
     [SerializeField] GameObject laserPrefab;
-    [SerializeField] float laserFiringSpeed = 0.3f;
+    [SerializeField] float laserFiringSpeed = 0.2f;
+
+    [SerializeField] float health = 200;
 
     float xMin, xMax, yMin, yMax;
 
@@ -29,6 +31,34 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    //reduce health everytime an enemy collides with a gameObject
+    //which has a DamageDealer component
+    private void OnTriggerEnter2D(Collider2D otherObject)
+    {
+        //access the DamageDealer class form "otherobject" which hits enemy
+        //and reduce health accordingly
+        DamageDealer dmg = otherObject.gameObject.GetComponent<DamageDealer>();
+
+        //if there is no damage dealer in otherObject end the method.
+        if(!dmg) //if (dmg == null).
+        {
+            return;
+        }
+
+        ProcessHit(dmg);
+    }
+
+    //whenever ProcessHit() is called, send us the DamageDealer details
+    private void ProcessHit(DamageDealer dmg)
+    {
+        health -= dmg.GetDamage();
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //coroutine to print 2 messages

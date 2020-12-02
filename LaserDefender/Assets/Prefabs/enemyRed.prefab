@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7208232541379871545}
   - component: {fileID: 578112458481673950}
   - component: {fileID: 5520585849327466886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: enemyRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,3 +158,6 @@ MonoBehaviour:
   enemyLaserPrefab: {fileID: 5081959471782293267, guid: eaa6350056d748847a9c77c786a95543,
     type: 3}
   enemyLaserSpeed: 10
+  deathVFX: {fileID: 9103895770313024318, guid: 03b3f64851a506e4ebde8318595c3075,
+    type: 3}
+  explotionDuration: 1
