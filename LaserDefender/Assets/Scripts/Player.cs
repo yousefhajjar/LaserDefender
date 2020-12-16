@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.7f;
 
     [SerializeField] GameObject laserPrefab;
-    [SerializeField] float laserFiringSpeed = 0.2f;
+    [SerializeField] float laserFiringSpeed = 0.05f;
 
-    [SerializeField] float health = 200;
+    [SerializeField] float health = 1000;
 
     float xMin, xMax, yMin, yMax;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetUpMoveBoundaries();
-        StartCoroutine(PrintAndWait());
+        //StartCoroutine(PrintAndWait());
     }
 
     // Update is called once per frame
@@ -62,13 +62,13 @@ public class Player : MonoBehaviour
     }
 
     //coroutine to print 2 messages
-    private IEnumerator PrintAndWait()
+    /*private IEnumerator PrintAndWait()
     {
         print("Message 1");
         yield return new WaitForSeconds(10);
         print("Message 2 after 10 seconds");
     }
-
+    */
     //coroutine to fire continuously
 
     private IEnumerator FireContinuously()
@@ -77,8 +77,9 @@ public class Player : MonoBehaviour
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
 
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 15f);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 20f);
 
+            laserFiringSpeed = 0.2f;
             yield return new WaitForSeconds(laserFiringSpeed);
         }
     }

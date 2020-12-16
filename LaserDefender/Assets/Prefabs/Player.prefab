@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  padding: 0.5
+  padding: 0.7
   laserPrefab: {fileID: 0}
-  laserFiringSpeed: 20
-  health: 1000
+  laserFiringSpeed: 0
+  health: 200
 --- !u!60 &-6432367389126745291
 PolygonCollider2D:
   m_ObjectHideFlags: 0
