@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7208232541379871545}
   - component: {fileID: 578112458481673950}
   - component: {fileID: 5520585849327466886}
+  - component: {fileID: 7047106663980889401}
+  - component: {fileID: 242242829491401789}
   m_Layer: 9
   m_Name: enemyRed
   m_TagString: Untagged
@@ -108,7 +110,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -160,4 +162,38 @@ MonoBehaviour:
   enemyLaserSpeed: 10
   deathVFX: {fileID: 9103895770313024318, guid: 03b3f64851a506e4ebde8318595c3075,
     type: 3}
-  explotionDuration: 1
+  explosionDuration: 0
+--- !u!50 &7047106663980889401
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7094377785590695462}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &242242829491401789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7094377785590695462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bd847e61239e24ea893580d96ed404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

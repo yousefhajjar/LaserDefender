@@ -54,10 +54,11 @@ public class Player : MonoBehaviour
     private void ProcessHit(DamageDealer dmg)
     {
         health -= dmg.GetDamage();
-
+        //destroy EnemyLaser
+        dmg.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -100,6 +101,13 @@ public class Player : MonoBehaviour
             StopCoroutine(fireCoroutine);
             coroutineStarted = false;
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+
+        FindObjectOfType<Level>().LoadGameOver();
     }
 
     private void SetUpMoveBoundaries()
